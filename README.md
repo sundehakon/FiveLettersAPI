@@ -1,2 +1,2 @@
 # Five Letters API
-Hosted API bringing five letter words to your platforms.
+API bringing five letter words to your platforms
