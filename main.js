@@ -35,6 +35,17 @@ app.get('/Words', async (req, res) => {
     }
 });
 
+app.get('/Random', async (req, res) => {
+    try {
+        const randomWord = await Word.aggregate([{ $sample: { size: 1 } }]);
+        res.status(200).json(randomWord[0]);
+    } catch (error) {
+        console.error('Error fetching random word:', error);
+        res.status(500).json({ message: 'Error fetching random word' });
+
+    }
+});
+
 app.get('/', (req, res) => {
     res.send('API up and running...');
 });
