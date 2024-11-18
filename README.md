@@ -12,4 +12,4 @@ All words
 > http://localhost:1000/Words?api_key=API_KEY
 
 ## API key
-If you wish to acquire an api key in order to utilize this service, please contact me at hakon.su@gmail.com
+If you wish to acquire an API key in order to utilize this service, please contact me at hakon.su@gmail.com
