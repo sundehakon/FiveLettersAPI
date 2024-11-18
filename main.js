@@ -7,6 +7,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
+// API key middleware
 app.use((req, res, next) => {
     const apiKey = req.query.api_key;
     if (!apiKey || apiKey !== process.env.API_KEY) {
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 mongoose.connect(process.env.MONGO_URI, {});
 const db = mongoose.connection;
 
+// Word data schematic
 const wordSchema = new mongoose.Schema({
     _id: Number,
     word: String,
@@ -25,6 +27,7 @@ const wordSchema = new mongoose.Schema({
 
 const Word = mongoose.model('Word', wordSchema);
 
+// Endpoint for word collection
 app.get('/Words', async (req, res) => {
     try {
         const words = await Word.find();
@@ -35,6 +38,7 @@ app.get('/Words', async (req, res) => {
     }
 });
 
+// Endpoint for random word
 app.get('/Random', async (req, res) => {
     try {
         const randomWord = await Word.aggregate([{ $sample: { size: 1 } }]);
@@ -46,6 +50,7 @@ app.get('/Random', async (req, res) => {
     }
 });
 
+// Home endpoint
 app.get('/', (req, res) => {
     res.send('API up and running...');
 });
