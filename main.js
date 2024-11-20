@@ -11,7 +11,7 @@ app.use(cors());
 app.use((req, res, next) => {
     const apiKey = req.query.api_key;
     if (!apiKey || apiKey !== process.env.API_KEY) {
-        res.status(401).json({ message: 'Unauthorized: Invalid or missing API key' });
+        return res.status(401).json({ message: 'Unauthorized: Invalid or missing API key' });
     }
     next();
 });
