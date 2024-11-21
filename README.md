@@ -1,4 +1,4 @@
-# Five Letters API
+# Five Letters API (Old Version)
 API bringing five letter words to your platforms
 
 ## Endpoints
